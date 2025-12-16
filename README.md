@@ -1,4 +1,5 @@
-# EndoStreamDepth
+# EndoStreamDepth: Temporally Consistent Monocular Depth Estimation for Endoscopic Video Streams
+
 [EndoStreamDepth](https://openreview.net/pdf?id=I7lgdDdcij) has been submitted to MIDL2026.
 
 ## TODO
