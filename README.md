@@ -8,6 +8,16 @@
 ## TODO
 update readme with more details
 
+
+## Highlights
+
+- **Streaming inference (frame-by-frame):** no batched multi-frame processing, low latency for real-world deployment.
+- **Endoscopy-Specific Transformation (EST):** geometry + photometric perturbations tailored for endoscopy.
+- **Hierarchical multi-level temporal modeling:** Mamba modules at multiple decoder scales to stabilize predictions.
+- **Comprehensive supervision:** multi-scale supervision + metric + edge losses + self-supervised temporal regularization.
+
+
+
 ## Installation
 ```
 conda create -n flashdepth python=3.11 --yes
