@@ -23,6 +23,17 @@ bash setup_env.sh
 ## Inference
 ``` /home/xx/anaconda3/envs/xxx/bin/torchrun   --nproc_per_node=1   train.py   --config-path configs/endostreamdepth/   inference=true   dataset.data_root=your_path```
 
+## Citing EndoStreamDepth
+If you find our EndoStreamDepth helpful, please use the following BibTeX entry.
+
+```
+@inproceedings{li2024interactive,
+  title={EndoStreamDepth: Temporally Consistent Monocular Depth Estimation for Endoscopic Video Streams,
+  author={Li, Hao and Lu, Daiwei, Wang, Jiacheng and Webster, Robert and Oguz, Ipek},
+  booktitle={Medical Imaging in Deep Learning},
+  year={2026 (submitted)}
+}
+```
 
 ## Contact
 Email: hao.li.1@vanderbilt.edu
