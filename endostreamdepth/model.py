@@ -254,7 +254,7 @@ class EndoStreamDepth(nn.Module):
         out2 = self.output_conv1_level3(x2)  # level 3
         out3 = self.output_conv1_level4(x3)  # level 4 (lowest res)
 
-        def _to_depth(feat, level_idx: int, chunk_size: int = 30, target_h=518, target_w=518):
+        def _to_depth(feat, level_idx: int, chunk_size: int = 30, target_h=518, target_w=518, max_depth=100):
             """
             Upsample in chunks to (target_h, target_w), apply final conv,
             scale and return [B, H, W].
@@ -288,14 +288,7 @@ class EndoStreamDepth(nn.Module):
             if out.max() <= 0:
                 logging.warning(f"Depth at level {level_idx} is all zeros")
 
-            # [B, 1, H, W] -> [B, H, W], scale to metric depth
-            # if c3vd:
-            #     depth = out.squeeze(1) * 100
-            # else:
-            #     depth = out.squeeze(1)
-            # return depth
-
-            depth = out.squeeze(1)
+            depth = out.squeeze(1) * max_depth
             return depth
 
         if c3vd:
@@ -304,10 +297,10 @@ class EndoStreamDepth(nn.Module):
             depth2 = _to_depth(out2, level_idx=2, target_h=130, target_w=130)
             depth3 = _to_depth(out3, level_idx=3, target_h=65, target_w=65)
         else:
-            depth0 = _to_depth(out0, level_idx=0, target_h=476, target_w=476)
-            depth1 = _to_depth(out1, level_idx=1, target_h=238, target_w=238)
-            depth2 = _to_depth(out2, level_idx=2, target_h=119, target_w=119)
-            depth3 = _to_depth(out3, level_idx=3, target_h=60, target_w=60)
+            depth0 = _to_depth(out0, level_idx=0, target_h=476, target_w=476, max_depth=1)
+            depth1 = _to_depth(out1, level_idx=1, target_h=238, target_w=238, max_depth=1)
+            depth2 = _to_depth(out2, level_idx=2, target_h=119, target_w=119, max_depth=1)
+            depth3 = _to_depth(out3, level_idx=3, target_h=60, target_w=60, max_depth=1)
 
         return depth0, depth1, depth2, depth3
 
@@ -511,11 +504,12 @@ class EndoStreamDepth(nn.Module):
 
 
     @torch.no_grad()
-    def forward(self, batch, use_mamba, gif_path, resolution, out_mp4 ,save_depth_npy=False, save_vis_map=False, **kwargs):
+    def forward(self, batch, use_mamba, gif_path, resolution, out_mp4 ,save_depth_npy=False, save_vis_map=False, dataset='cv3d', **kwargs):
 
         # both have shape (B, T, C, H, W)
         if isinstance(batch, list) or isinstance(batch, tuple):
             video, gt_depth = batch
+
         elif isinstance(batch, torch.Tensor):
             video = batch
             gt_depth = None
@@ -542,8 +536,16 @@ class EndoStreamDepth(nn.Module):
             dpt_features = self.get_dpt_features(frame, input_shape=(B,C,H,W))
 
             # pred_depth = self.final_head(dpt_features, patch_h, patch_w)
-            pred_depth = self.multi_level_final_head(dpt_features)
+            if 'cv3d' in dataset:
+                pred_depth = self.multi_level_final_head(dpt_features)
+                max_depth = 100
+            else:
+                pred_depth = self.multi_level_final_head(dpt_features, c3vd=False)
+                max_depth = 1
+
+            # pred_depth = self.multi_level_final_head(dpt_features)
             pred_depth = pred_depth[0]
+            pred_depth = pred_depth * max_depth
             # print(pred_depth.shape)
             pred_depth = torch.clip(pred_depth, min=0)
 
