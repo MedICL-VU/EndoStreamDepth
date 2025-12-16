@@ -12,16 +12,23 @@
 - **Endoscopy-Specific Transformation (EST):** geometry + photometric perturbations tailored for endoscopy.
 - **Hierarchical multi-level temporal modeling:** Mamba modules at multiple decoder scales to stabilize predictions.
 - **Comprehensive supervision:** multi-scale supervision + metric + edge losses + self-supervised temporal regularization.
-  
-Details can be viewed in our [paper](https://openreview.net/pdf?id=I7lgdDdcij).
+
 
 ##
 ![EndoStreamDepth](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/EndoStreamDepth_overview_horizontal.png?raw=true)
 We provide both a single-frame baseline and a streaming video model. The streaming model reuses the same encoder–decoder backbone and adds multi-level temporal modules to propagate information over time for stable metric depth.
 
 
-## 
+## Results at a glance
+- **Public datasets:** evaluated on public dataset **C3VD** and **SimCol3D**.
+- **Strong performance:** achieves **state-of-the-art** accuracy and boundary quality against strong baselines (e.g., DepthAnything v2, FlashDepth, Metric DAv2).
+- **Benchmark coverage:** validated under **in-distribution**, **domain-shift**, and **cross-dataset** settings to demonstrate robustness.
+- **Temporal stability:** improves frame-to-frame consistency (lower flicker) while keeping **streaming** inference.
 
+
+Details can be viewed in our [paper](https://openreview.net/pdf?id=I7lgdDdcij).
+
+## 
 
 ![Qualitative](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/qualitative.png?raw=true)
 Compared to FlashDepth and Metric Depth Anything v2, EndoStreamDepth produces lower error maps, a cleaner depth shape, and sharper depth discontinuities around anatomical boundaries, with fewer local artifacts highlighted by the arrows.
