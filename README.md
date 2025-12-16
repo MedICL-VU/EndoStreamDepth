@@ -24,7 +24,7 @@ We provide both a single-frame baseline and a streaming video model. The streami
 
 
 ![Qualitative](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/qualitative.png?raw=true)
-Compared to FlashDepth and Metric DAv2, EndoStreamDepth produces lower error maps, a cleaner depth shape, and sharper depth discontinuities around anatomical boundaries, with fewer local artifacts highlighted by the arrows.
+Compared to FlashDepth and Metric Depth Anything v2, EndoStreamDepth produces lower error maps, a cleaner depth shape, and sharper depth discontinuities around anatomical boundaries, with fewer local artifacts highlighted by the arrows.
 
 
 ## Installation
