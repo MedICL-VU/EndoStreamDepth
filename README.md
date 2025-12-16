@@ -1,6 +1,5 @@
 # EndoStreamDepth
-EndoStreamDepth
-has been submitted to MIDL2026. I'm cleaning the code and will upload it. Contact info: hao.li.1@vanderbilt.edu
+[EndoStreamDepth](https://openreview.net/pdf?id=I7lgdDdcij) has been submitted to MIDL2026.
 
 ## TODO
 update readme with more details
