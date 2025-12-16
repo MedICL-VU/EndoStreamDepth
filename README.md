@@ -77,7 +77,7 @@ bash setup_env.sh
 - [SimCol3D](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/dataloaders/simcol3d.py#L10)
 ## Quantitative Results
 
-### C3VD (Split 1, in-distribution):** transverse colon is held out for testing.
+### C3VD (Split 1, in-distribution):transverse colon is held out for testing.
 
 **EndoStreamDepth** achieves the best performance across all metrics, including both global geometry (δ1/AbsRel/RMSE/L1) and boundary sharpness (F1).
 
@@ -97,7 +97,7 @@ bash setup_env.sh
 
 🏆 best
 
-** C3VD (Split 2, in-distribution)
+**C3VD (Split 2, in-distribution)**
 
 | Method | AbsRel ↓ | SqRel ↓ | RMSE ↓ |
 |---|---:|---:|---:|
@@ -109,7 +109,7 @@ bash setup_env.sh
 | Ours-video | 0.052 | 0.11 🏆 | 1.72 🏆 |
 
 
-**SimCol3D (SimCol III test):**
+**SimCol3D (SimCol III test, unseen sequence)**
 
 🏆 best
 
