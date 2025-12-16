@@ -2,6 +2,9 @@
 
 [EndoStreamDepth](https://openreview.net/pdf?id=I7lgdDdcij) has been submitted to MIDL2026.
 
+
+**EndoStreamDepth** is a real-time *video stream* monocular depth estimation framework for endoscopic videos. It predicts **accurate**, **temporally consistent**, and **sharp-boundary** metric depth maps by processing frames **sequentially (streaming)** with hierarchical temporal modules.
+
 ## TODO
 update readme with more details
 
