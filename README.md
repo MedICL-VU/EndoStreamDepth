@@ -27,7 +27,7 @@ bash setup_env.sh
 If you find our EndoStreamDepth helpful, please use the following BibTeX entry.
 
 ```
-@inproceedings{li2024interactive,
+@inproceedings{li2025endostreamdepth,
   title={EndoStreamDepth: Temporally Consistent Monocular Depth Estimation for Endoscopic Video Streams,
   author={Li, Hao and Lu, Daiwei, Wang, Jiacheng and Webster, Robert and Oguz, Ipek},
   booktitle={Medical Imaging in Deep Learning},
