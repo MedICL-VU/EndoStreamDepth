@@ -59,8 +59,8 @@ bash setup_env.sh
 - 22 video sequences, 10,015 frames with paired ground-truth depth.
 - Four colon segments: cecum, descending colon, sigmoid colon, transverse colon.
 - We use two evaluation splits:
-  - **Split 1 (in-distribution)**
-  - **Split 2 (domain shift):** hold out transverse colon videos for testing
+  - **Split 1 (domain shift):** hold out transverse colon videos for testing
+  - **Split 2 (in-distribution)**
 
 ### SimCol3D (Simulated colonoscopy depth dataset)
 - 33 videos, 37,800 frames with paired depths.
