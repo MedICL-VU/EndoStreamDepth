@@ -13,7 +13,7 @@
 - **Hierarchical multi-level temporal modeling:** Mamba modules at multiple decoder scales to stabilize predictions.
 - **Comprehensive supervision:** multi-scale supervision + metric + edge losses + self-supervised temporal regularization.
   
-Details can be viewed in paper.
+Details can be viewed in our [paper](https://openreview.net/pdf?id=I7lgdDdcij).
 
 ##
 ![EndoStreamDepth](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/EndoStreamDepth_overview_horizontal.png?raw=true)
