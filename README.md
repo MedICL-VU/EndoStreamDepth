@@ -50,11 +50,11 @@ bash setup_env.sh
 
 ## Results
 
-All results are reported on an NVIDIA A6000 GPU. We use 518×518 input resolution for C3VD and 476×476 for SimCol3D.  
-
-### C3VD (Split 1, in-distribution)
+### C3VD (Split 1, in-distribution):** transverse colon is held out for testing.
 
 **EndoStreamDepth** achieves the best performance across all metrics, including both global geometry (δ1/AbsRel/RMSE/L1) and boundary sharpness (F1).
+
+🏆 best
 
 | Method | δ1 ↑ | AbsRel ↓ | SqRel ↓ | RMSE ↓ | RMSE log ↓ | L1 ↓ | F1 ↑ |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -63,27 +63,28 @@ All results are reported on an NVIDIA A6000 GPU. We use 518×518 input resolutio
 | EndoOmni | 0.836 | 0.154 | 0.610 | 3.623 | 0.170 | 2.596 | 0.109 |
 | DINOv3 depth | 0.731 | 0.192 | 1.188 | 5.457 | 0.194 | 3.955 | 0.070 |
 | FlashDepth | 0.730 | 0.188 | 1.046 | 4.989 | 0.190 | 3.780 | 0.116 |
-| **EndoStreamDepth (Ours)** | **0.952** | **0.085** | **0.246** | **2.739** | **0.107** | **1.780** | **0.143** |
+| EndoStreamDepth (Ours) | 0.952 🏆 | 0.085 🏆 | 0.246 🏆 | 2.739 🏆 | 0.107 🏆 | 1.780 🏆 | 0.143 🏆 |
 
-### Temporal stability and runtime (C3VD Split 1)
 
-We compare per-video temporal variance **σ** (lower is better) and inference speed (FPS).  
-EndoStreamDepth achieves **lower σ than FlashDepth on 8/9 videos**, while maintaining real-time throughput (**24 FPS** on average vs **36 FPS** for FlashDepth).
+### Benchmarking: in-distribution + cross-dataset generalization
 
-### Benchmarking: domain shift + cross-dataset generalization
+🏆 best
 
-**C3VD (Split 2, domain shift):** transverse colon is held out for testing.
+** C3VD (Split 2, in-distribution)
 
 | Method | AbsRel ↓ | SqRel ↓ | RMSE ↓ |
 |---|---:|---:|---:|
 | LightDepth | 0.078 | 1.81 | 6.55 |
 | NormDepth+ | 0.155 | 1.53 | 7.51 |
 | PPSNet-Teacher | 0.053 | 0.15 | 2.15 |
-| PPSNet-Student | **0.049** | 0.14 | 2.06 |
+| PPSNet-Student | 0.049 🏆 | 0.14 | 2.06 |
 | Ours-frame | 0.077 | 0.27 | 1.74 |
-| **Ours-video** | 0.052 | **0.11** | **1.72** |
+| Ours-video | 0.052 | 0.11 🏆 | 1.72 🏆 |
+
 
 **SimCol3D (SimCol III test):**
+
+🏆 best
 
 | Method | L1 ↓ | RMSE ↓ | AbsRel ↓ |
 |---|---:|---:|---:|
@@ -92,7 +93,8 @@ EndoStreamDepth achieves **lower σ than FlashDepth on 8/9 videos**, while maint
 | EndoAI (3rd) | 0.111 | 0.168 | 0.028 |
 | IntuitiveIL (4th) | 0.167 | 0.233 | 0.047 |
 | Ours-frame | 0.099 | 0.140 | 0.028 |
-| **Ours-video** | **0.087** | **0.126** | **0.023** |
+| Ours-video | 0.087 🏆 | 0.126 🏆 | 0.023 🏆 |
+
 
 
 ## Citing EndoStreamDepth
