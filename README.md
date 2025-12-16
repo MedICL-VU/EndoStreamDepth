@@ -53,6 +53,11 @@ bash setup_env.sh
 ``` /home/xx/anaconda3/envs/xxx/bin/torchrun   --nproc_per_node=1   train.py   --config-path configs/endostreamdepth/   inference=true   dataset.data_root=your_path```
 
 
+## Pretrained Weights
+| C3VD (split1) | C3VD (split2) | SimCol3D |
+|------------------------------|------------------------------|------------------------------|
+|[Download](https://drive.google.com/drive/u/1/folders/1XKaeCeuhaDlO8F8knfPlyjLTaaPxoDLE)| [Download](https://drive.google.com/drive/u/1/folders/1J1vsEz30J0SVpMt2YB9AOqff4Wjpz5kN) |[Download](https://drive.google.com/drive/u/1/folders/14byiSecftSH116Kcdu8z55nOBegxNQgJ)|
+
 ## Datasets and Splits
 
 ### C3VD (Phantom colonoscopy depth dataset)
