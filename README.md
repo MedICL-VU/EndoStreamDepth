@@ -53,7 +53,7 @@ bash setup_env.sh
 ``` /home/xx/anaconda3/envs/xxx/bin/torchrun   --nproc_per_node=1   train.py   --config-path configs/endostreamdepth/   inference=true   dataset.data_root=your_path```
 
 
-## Datasets
+## Datasets and Splits
 
 ### C3VD (Phantom colonoscopy depth dataset)
 - 22 video sequences, 10,015 frames with paired ground-truth depth.
@@ -66,7 +66,10 @@ bash setup_env.sh
 - 33 videos, 37,800 frames with paired depths.
 - Follow the official training/evaluation splits.
 
-
+### Data split
+- [C3VD split 1](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/dataloaders/cv3d_dataset.py#L10)
+- [C3VD split 2](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/dataloaders/cv3d2_dataset.py#L10)
+- [SimCol3D](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/dataloaders/simcol3d.py#L10)
 ## Quantitative Results
 
 ### C3VD (Split 1, in-distribution):** transverse colon is held out for testing.
