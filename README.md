@@ -119,7 +119,7 @@ bash setup_env.sh
 ## Citing EndoStreamDepth
 If you find our EndoStreamDepth helpful, please use the following BibTeX entry.
 
-```
+```bibtex
 @inproceedings{li2025endostreamdepth,
   title={EndoStreamDepth: Temporally Consistent Monocular Depth Estimation for Endoscopic Video Streams,
   author={Li, Hao and Lu, Daiwei, Wang, Jiacheng and Webster, Robert and Oguz, Ipek},
