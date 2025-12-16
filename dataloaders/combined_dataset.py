@@ -89,7 +89,7 @@ class CombinedDataset(Dataset):
         self.split = split
 
         self.transforms = {}
-
+        """SimCol3D"""
         # self.transformation = ReplayCompose([
         #     # A.Resize(518, 518, mask_interpolation=cv2.INTER_AREA),
         #     A.Resize(476, 476, mask_interpolation=cv2.INTER_AREA),
@@ -113,29 +113,31 @@ class CombinedDataset(Dataset):
         # # raw_w = 1350
         # # crop_h, crop_w = compute_vit_crop(raw_h, raw_w, patch=14)
         # #
-        # # self.transformation = ReplayCompose([
-        # #     # ResizeWithSeparateMaskModes(518, 518),
-        # #     A.CenterCrop(height=crop_h, width=crop_w, p=1.0),
-        # #
-        # #     A.RandomRotate90(),
-        # #     A.HorizontalFlip(p=0.5),
-        # #     A.VerticalFlip(p=0.5),
-        # #
-        # #     A.GaussianBlur(p=0.1),
-        # #     A.AutoContrast(p=0.1),
-        # #     A.MotionBlur(p=0.1),
-        # #     A.MedianBlur(blur_limit=15, p=0.1),
-        # #     A.RandomGamma(p=0.1),
-        # #     A.Defocus(p=0.1),
-        # #     A.RandomFog(alpha_coef=0.1, p=0.1),
-        # #     A.RandomBrightnessContrast(p=0.1),
-        # #
-        # #     A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-        # #     A.ToTensorV2()
-        # # ], additional_targets={
-        # #     'mask': 'mask',  # your depth – gets INTER_AREA
-        # #     'valid_mask': 'mask'  # but overridden to INTER_NEAREST in custom resize
-        # # })
+
+        """C3VD"""
+        self.transformation = ReplayCompose([
+            ResizeWithSeparateMaskModes(518, 518),
+            # A.CenterCrop(height=crop_h, width=crop_w, p=1.0),
+
+            A.RandomRotate90(),
+            A.HorizontalFlip(p=0.5),
+            A.VerticalFlip(p=0.5),
+
+            A.GaussianBlur(p=0.1),
+            A.AutoContrast(p=0.1),
+            A.MotionBlur(p=0.1),
+            A.MedianBlur(blur_limit=15, p=0.1),
+            A.RandomGamma(p=0.1),
+            A.Defocus(p=0.1),
+            A.RandomFog(alpha_coef=0.1, p=0.1),
+            A.RandomBrightnessContrast(p=0.1),
+
+            A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+            A.ToTensorV2()
+        ], additional_targets={
+            'mask': 'mask',  # your depth – gets INTER_AREA
+            'valid_mask': 'mask'  # but overridden to INTER_NEAREST in custom resize
+        })
 
 
     def _get_transform(self, dataset_name: str):
@@ -285,7 +287,7 @@ class CombinedDataset(Dataset):
         valid_masks = []
         # Transform scene-relative indices to dataset-relative indices
 
-        transform = self._get_transform(dataset_idx)
+        # transform = self._get_transform(dataset_idx)
         replay = None
 
         sequence_indices = [scene_start_idx + s for s in sequence_indices]
@@ -304,7 +306,8 @@ class CombinedDataset(Dataset):
 
             if seq_i == 0:
                 # sample random augmentation once for the whole sequence
-                augmented = transform(image=image, mask=depth, valid_mask=valid_mask)
+                # augmented = transform(image=image, mask=depth, valid_mask=valid_mask)
+                augmented = self.transformation(image=image, mask=depth, valid_mask=valid_mask)
                 replay = augmented["replay"]
             else:
                 # replay exactly the same augmentation params
