@@ -170,6 +170,7 @@ def inference(cfg, process_dict):
             _, img_grid = model(
                 batch, 
                 gif_path=f'{savepath}/{os.path.basename(cfg.config_dir.rstrip("/"))}_{train_step}_{test_idx}.gif',
+                dataset=cfg.eval.test_datasets,
                 **eval_args
                 )
 
