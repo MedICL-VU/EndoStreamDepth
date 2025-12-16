@@ -16,7 +16,7 @@
 
 ##
 ![EndoStreamDepth](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/EndoStreamDepth_overview_horizontal.png?raw=true)
-We provide both a single-frame baseline and a streaming video model. The streaming model reuses the same encoder–decoder backbone and adds multi-level temporal modules to propagate information over time for stable metric depth.
+We provide both a single-frame baseline (left-b) and a streaming video model (left-c) with multiple cupervision signials. The streaming model further adds multi-level temporal modules (right) to propagate information over time for stable metric depth.
 
 
 ## Results at a glance
