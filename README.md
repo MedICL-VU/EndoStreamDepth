@@ -12,8 +12,20 @@
 - **Endoscopy-Specific Transformation (EST):** geometry + photometric perturbations tailored for endoscopy.
 - **Hierarchical multi-level temporal modeling:** Mamba modules at multiple decoder scales to stabilize predictions.
 - **Comprehensive supervision:** multi-scale supervision + metric + edge losses + self-supervised temporal regularization.
+  
+Details can be viewed in paper.
 
+##
 ![EndoStreamDepth](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/EndoStreamDepth_overview_horizontal.png?raw=true)
+We provide both a single-frame baseline and a streaming video model. The streaming model reuses the same encoder–decoder backbone and adds multi-level temporal modules to propagate information over time for stable metric depth.
+
+
+## 
+
+
+![Qualitative](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/figs/qualitative.png?raw=true)
+Compared to FlashDepth and Metric DAv2, EndoStreamDepth produces lower error maps, a cleaner depth shape, and sharper depth discontinuities around anatomical boundaries, with fewer local artifacts highlighted by the arrows.
+
 
 ## Installation
 ```
@@ -48,7 +60,7 @@ bash setup_env.sh
 - Follow the official training/evaluation splits.
 
 
-## Results
+## Quantitative Results
 
 ### C3VD (Split 1, in-distribution):** transverse colon is held out for testing.
 
