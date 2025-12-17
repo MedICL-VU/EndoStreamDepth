@@ -363,7 +363,7 @@ class EndoStreamDepth(nn.Module):
         # both have shape (B, T, C, H, W)
         video, gt_depth, valid_mask = batch
         video = video.to(torch.cuda.current_device())
-
+        # print(torch.unique(gt_depth.float()))
 
         gt_depth = gt_depth.to(torch.cuda.current_device())
         valid_mask = valid_mask.to(torch.cuda.current_device())
@@ -382,11 +382,14 @@ class EndoStreamDepth(nn.Module):
         # pred_depth = self.multi_level_final_head(dpt_features)
 
         # print(torch.unique(gt_depth.float()))
-        dataset = list(dataset)
-        if 'cv3d' in dataset:
+        if 'cv3d' in list(dataset):
             pred_depth = self.multi_level_final_head(dpt_features)
-            pred_depth = tuple(d * 100 for d in pred_depth)
+            # print(torch.unique(pred_depth[0].float()))
+
+            #pred_depth = tuple(d * 100 for d in pred_depth)
             max_depth = 100
+            # print(torch.unique(pred_depth[0].float()))
+
             #print(f'max_depth: {max_depth}')
         else:
             pred_depth = self.multi_level_final_head(dpt_features, c3vd=False)
@@ -536,17 +539,15 @@ class EndoStreamDepth(nn.Module):
             dpt_features = self.get_dpt_features(frame, input_shape=(B,C,H,W))
 
             # pred_depth = self.final_head(dpt_features, patch_h, patch_w)
-            if 'cv3d' in dataset:
+            if 'cv3d' in list(dataset):
                 pred_depth = self.multi_level_final_head(dpt_features)
-                max_depth = 100
             else:
                 pred_depth = self.multi_level_final_head(dpt_features, c3vd=False)
-                max_depth = 1
+
 
             # pred_depth = self.multi_level_final_head(dpt_features)
             pred_depth = pred_depth[0]
-            pred_depth = pred_depth * max_depth
-            # print(pred_depth.shape)
+            print(torch.unique(pred_depth.float()))
             pred_depth = torch.clip(pred_depth, min=0)
 
 
