@@ -43,9 +43,10 @@ bash setup_env.sh
 
 
 ## Training
- ```/path/to/conda/env/bin/torchrun --nproc_per_node=1 train.py \
-  --config-path configs/endostreamdepth/<your_config>.yaml \
-  dataset.data_root=<your_dataset_root>
+ ```
+/path/to/conda/env/bin/torchrun --nproc_per_node=1 train.py \
+--config-path configs/endostreamdepth/<your_config>.yaml \
+dataset.data_root=<your_dataset_root>
 ```
 
  
@@ -53,10 +54,11 @@ or similiar to ```/home/xx/anaconda3/envs/xxx/bin/torchrun```, which is your con
 
 
 ## Inference
-``` /path/to/conda/env/bin/torchrun --nproc_per_node=1 train.py \
-  --config-path configs/endostreamdepth/<your_config>.yaml \
-  inference=true \
-  dataset.data_root=<your_dataset_root>
+```
+/path/to/conda/env/bin/torchrun --nproc_per_node=1 train.py \
+--config-path configs/endostreamdepth/<your_config>.yaml \
+inference=true \
+dataset.data_root=<your_dataset_root>
 ```
 
 
