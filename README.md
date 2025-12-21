@@ -43,14 +43,21 @@ bash setup_env.sh
 
 
 ## Training
- ```/home/xx/anaconda3/envs/xxx/bin/torchrun --nproc_per_node=1 train.py --config-path configs/endostreamdepth/ load=checkpoints/your_checkpoint dataset.data_root=your_path```
+ ```/path/to/conda/env/bin/torchrun --nproc_per_node=1 train.py \
+  --config-path configs/endostreamdepth/<your_config>.yaml \
+  dataset.data_root=<your_dataset_root>
+```
 
  
-```/home/xx/anaconda3/envs/xxx/bin/torchrun``` is your conda env path
+or similiar to ```/home/xx/anaconda3/envs/xxx/bin/torchrun```, which is your conda env path
 
 
 ## Inference
-``` /home/xx/anaconda3/envs/xxx/bin/torchrun   --nproc_per_node=1   train.py   --config-path configs/endostreamdepth/   inference=true   dataset.data_root=your_path```
+``` /path/to/conda/env/bin/torchrun --nproc_per_node=1 train.py \
+  --config-path configs/endostreamdepth/<your_config>.yaml \
+  inference=true \
+  dataset.data_root=<your_dataset_root>
+```
 
 
 ## Pretrained Weights
