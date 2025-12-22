@@ -33,7 +33,7 @@ class ResizeWithSeparateMaskModes(A.Resize):
             return cv2.resize(mask, (self.width, self.height), interpolation=cv2.INTER_NEAREST)
         else:
             # depth mask → area
-            return cv2.resize(mask, (self.width, self.height), interpolation=cv2.INTER_NEAREST)# INTER_AREA
+            return cv2.resize(mask, (self.width, self.height), interpolation=cv2.INTER_AREA)# INTER_AREA
 
     def get_params_dependent_on_targets(self, params):
         return {}
