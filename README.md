@@ -143,11 +143,11 @@ dataset.data_root=<your_dataset_root>
 If you find our EndoStreamDepth helpful, please use the following BibTeX entry.
 
 ```bibtex
-@inproceedings{li2025endostreamdepth,
+@article{li2025depth,
   title={EndoStreamDepth: Temporally Consistent Monocular Depth Estimation for Endoscopic Video Streams,
   author={Li, Hao and Lu, Daiwei, Wang, Jiacheng and Webster, Robert and Oguz, Ipek},
-  booktitle={Medical Imaging in Deep Learning},
-  year={2026 (submitted)}
+  journal={arXiv preprint arXiv:2512.18159},
+  year={2025}
 }
 ```
 
