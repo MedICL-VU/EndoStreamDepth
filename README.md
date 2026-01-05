@@ -38,6 +38,8 @@ Compared to FlashDepth and Metric Depth Anything v2, EndoStreamDepth produces lo
 
 ## Installation
 ```
+git clone https://github.com/MedICL-VU/EndoStreamDepth.git
+cd EndoStreamDepth
 conda create -n endostreamdepth python=3.11 --yes
 conda activate endostreamdepth
 bash setup_env.sh
