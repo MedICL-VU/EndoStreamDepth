@@ -66,8 +66,7 @@ or similiar to ```/home/xx/anaconda3/envs/xxx/bin/torchrun```, which is your con
 train.py \
 --config-path configs/endostreamdepth/<your_config>.yaml \
 inference=true \
-dataset.data_root=<your_dataset_root> \
-load=/path/to/your/weights.pth
+dataset.data_root=<your_dataset_root>
 ```
 
 ### Inference example ###
@@ -78,7 +77,8 @@ If you are using the example [dataset](https://github.com/MedICL-VU/EndoStreamDe
 torchrun --nproc_per_node=1 \
       train.py \
       --config-path configs/example_inference \
-      inference=true
+      inference=true \
+      load=/path/to/your/weights.pth
 ```
 
 ## Pretrained Weights
