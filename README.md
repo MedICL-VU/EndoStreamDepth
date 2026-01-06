@@ -66,7 +66,8 @@ or similiar to ```/home/xx/anaconda3/envs/xxx/bin/torchrun```, which is your con
 train.py \
 --config-path configs/endostreamdepth/<your_config>.yaml \
 inference=true \
-dataset.data_root=<your_dataset_root>
+dataset.data_root=<your_dataset_root> \
+load=/path/to/your/weights.pth
 ```
 
 ### Inference example ###
