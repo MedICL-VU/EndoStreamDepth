@@ -69,6 +69,16 @@ inference=true \
 dataset.data_root=<your_dataset_root>
 ```
 
+### Inference example ###
+
+If you are using the example [dataset](https://github.com/MedICL-VU/EndoStreamDepth/tree/main/cv3d/trans_t1_a), then you can change the test video [here](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/dataloaders/cv3d_dataset.py#L10), leaving first video along, and run below command
+
+```
+torchrun --nproc_per_node=1 \
+      train.py \
+      --config-path configs/example_inference \
+      inference=true
+```
 
 ## Pretrained Weights
 | C3VD (split1) | C3VD (split2) | SimCol3D |
