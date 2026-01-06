@@ -75,6 +75,8 @@ dataset.data_root=<your_dataset_root>
 |------------------------------|------------------------------|------------------------------|
 |[Download](https://drive.google.com/drive/u/1/folders/1XKaeCeuhaDlO8F8knfPlyjLTaaPxoDLE)| [Download](https://drive.google.com/drive/u/1/folders/1J1vsEz30J0SVpMt2YB9AOqff4Wjpz5kN) |[Download](https://drive.google.com/drive/u/1/folders/14byiSecftSH116Kcdu8z55nOBegxNQgJ)|
 
+update the pretrained weights path [here](https://github.com/MedICL-VU/EndoStreamDepth/blob/main/configs/endostreamdepth/config.yaml#L4)
+
 ## Datasets and Splits
 
 ### C3VD (Phantom colonoscopy depth dataset)
